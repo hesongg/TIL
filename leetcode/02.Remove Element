@@ -1,0 +1,37 @@
+#### leetcode - 27. Remove Element
+https://leetcode.com/problems/remove-element/description/?envType=study-plan-v2&envId=top-interview-150
+
+첫 코드
+```py
+class Solution(object):
+    def removeElement(self, nums, val):
+        """
+        :type nums: List[int]
+        :type val: int
+        :rtype: int
+        """
+        k = len(nums)
+        
+        i = 0
+        while i < len(nums):
+            if nums[i] == val:
+                k -= 1
+                del nums[i]
+            else:
+                i += 1
+        return k
+```
+
+수정 코드 - List Comprehension
+```py
+class Solution(object):
+    def removeElement(self, nums, val):
+        nums[:] = [num for num in nums if num != val]
+        return len(nums)
+```
+
+다른 버전 - remove
+```py
+while val in nums: 
+  nums.remove(val)
+```
